@@ -31,6 +31,7 @@ public class JokesOnYouServices {
             "My friends tell me that cooking is easy, but it’s not easier than not cooking.",
             "I put so much more effort into naming my first Wi-Fi than my \u2028first child.",
             "I lied and told my dad school \u2028was canceled. He said, ‘Let’s go see \u2028a movie.’ We got in the car, and he dropped me off at school.",
+            "“I was Facebooking in church, and the usher passed by and whispered, ‘You better be texting Jesus.’”", 
     };
 
 
