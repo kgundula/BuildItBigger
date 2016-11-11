@@ -52,14 +52,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(jokeIntent);
 
     }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
+    
 }
