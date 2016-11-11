@@ -3,10 +3,10 @@
     package="za.co.gundula.app.jokesonyouandroidservices">
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:label="@string/app_name"
         android:supportsRtl="true">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".JokesOnYouActivity"></activity>
     </application>
 
 </manifest>

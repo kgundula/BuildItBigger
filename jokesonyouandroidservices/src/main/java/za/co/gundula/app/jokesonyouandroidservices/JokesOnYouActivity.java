@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class JokesOnYouActivity extends AppCompatActivity {
 
     public final static String INTENT_JOKES = "jokes_on_you";
 
