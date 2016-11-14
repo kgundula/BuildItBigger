@@ -15,13 +15,15 @@ public class JokesOnYouActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jokes_on_you);
 
-        Intent jokesIntent = getIntent();
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        Intent jokesIntent = getIntent();
         String joke = jokesIntent.getStringExtra(INTENT_JOKES);
         TextView jokeTextView = (TextView) findViewById(R.id.jokes_on_you_textview);
         if (joke != null && joke.length() != 0) {
-
             jokeTextView.setText(joke);
         }
     }
+
+
 }

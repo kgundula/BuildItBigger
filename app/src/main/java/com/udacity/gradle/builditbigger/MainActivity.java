@@ -6,12 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import za.co.gundula.app.jokesonyouandroidservices.JokesOnYouActivity;
-import za.co.gundula.java.lib.JokesOnYouServices;
 
 public class MainActivity extends AppCompatActivity {
+
+    EndpointsAsyncTask endpointsAsyncTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +44,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void tellJoke(View view) {
 
-        String joke = JokesOnYouServices.getJoke();
-        Toast.makeText(this, joke, Toast.LENGTH_SHORT).show();
+        endpointsAsyncTask = new EndpointsAsyncTask() {
+            @Override
+            protected Void doInBackground(Object... params) {
+                super.doInBackground(params);
+                String joke = endpointsAsyncTask.getJoke();
+                Intent jokeIntent = new Intent(MainActivity.this, JokesOnYouActivity.class);
+                jokeIntent.putExtra(JokesOnYouActivity.INTENT_JOKES, joke);
+                startActivity(jokeIntent);
 
-        Intent jokeIntent = new Intent(this, JokesOnYouActivity.class);
-        jokeIntent.putExtra(JokesOnYouActivity.INTENT_JOKES, joke);
-        startActivity(jokeIntent);
+                return null;
+            }
+        };
+        endpointsAsyncTask.execute();
+
 
     }
     

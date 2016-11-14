@@ -12,6 +12,8 @@ import com.google.api.server.spi.config.ApiNamespace;
 
 import javax.inject.Named;
 
+import za.co.gundula.java.lib.JokesOnYouServices;
+
 /**
  * An endpoint class we are exposing
  */
@@ -35,6 +37,13 @@ public class MyEndpoint {
         response.setData("Hi, " + name);
 
         return response;
+    }
+
+    @ApiMethod(name = "getJoke")
+    public MyBean getJoke() {
+        MyBean myBean = new MyBean();
+        myBean.setData(JokesOnYouServices.getJoke());
+        return myBean;
     }
 
 }
