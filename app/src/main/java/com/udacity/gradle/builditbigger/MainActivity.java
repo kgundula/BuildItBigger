@@ -6,17 +6,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import za.co.gundula.app.jokesonyouandroidservices.JokesOnYouActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     EndpointsAsyncTask endpointsAsyncTask;
-
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        // progressBar
     }
 
 
@@ -43,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-
+        progressBar.setVisibility(View.VISIBLE);
         endpointsAsyncTask = new EndpointsAsyncTask() {
             @Override
             protected Void doInBackground(Object... params) {
@@ -52,12 +56,17 @@ public class MainActivity extends AppCompatActivity {
                 Intent jokeIntent = new Intent(MainActivity.this, JokesOnYouActivity.class);
                 jokeIntent.putExtra(JokesOnYouActivity.INTENT_JOKES, joke);
                 startActivity(jokeIntent);
-
                 return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void avoid) {
+                super.onPostExecute(avoid);
+                progressBar.setVisibility(View.GONE);
             }
         };
         endpointsAsyncTask.execute();
-
+        //endpointsAsyncTask.
 
     }
     
