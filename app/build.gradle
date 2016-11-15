@@ -47,6 +47,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile "com.android.support:appcompat-v7:${supportLib}"
-    compile "com.google.android.gms:play-services-ads:${playServicesLib}"
+    freeCompile "com.google.android.gms:play-services-ads:${playServicesLib}"
     compile 'com.google.code.findbugs:jsr305:2.0.1'
 }
